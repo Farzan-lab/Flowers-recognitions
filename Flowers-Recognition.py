@@ -15,8 +15,10 @@ print(imagetype)
 path="flowers//"
 
 image_size=60
-images=[]
-labels=[]
+images=[]   #images list will store all images
+
+labels=[]   #labels list will store all related labels of oour classes
+
 
 for i in imagetype:
     flower_path=path+str(i)
@@ -24,11 +26,12 @@ for i in imagetype:
 
     for data in data_list:
         image=cv2.imread(flower_path + '/'+ data)
-        image=cv2.resize(image,(image_size,image_size))
+        image=cv2.resize(image,(image_size,image_size)) #resize the imag
         images.append(image)
         labels.append(i)
 
 
 images=np.array(images)
 images=images.astype('float32')/255
-print(images)
+print(images.shape)
+print(labels)
